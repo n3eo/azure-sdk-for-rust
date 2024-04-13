@@ -10,7 +10,7 @@ operation! {
     ?recursive: Recursive,
     ?continuation: NextMarker,
     ?if_match_condition: IfMatchCondition,
-    ?if_modified_since: IfModifiedSince,
+    ?if_modified_since: IfModifiedSinceCondition,
 }
 
 impl<C: PathClient + 'static> DeletePathBuilder<C> {
