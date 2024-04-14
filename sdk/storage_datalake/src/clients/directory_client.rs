@@ -14,7 +14,8 @@ pub struct DirectoryClient {
 impl PathClient for DirectoryClient {
     fn url(&self) -> azure_core::Result<Url> {
         let fs_url = self.file_system_client.url()?;
-        Ok(self.file_system_client.url()?.join(&self.dir_path)?)
+        let dir_path = [fs_url.path(), &self.dir_path].join("/");
+        Ok(self.file_system_client.url()?.join(&dir_path)?)
     }
 
     async fn send(
