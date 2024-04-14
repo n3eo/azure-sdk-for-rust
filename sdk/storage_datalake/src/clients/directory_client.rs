@@ -38,7 +38,7 @@ impl DirectoryClient {
         let fs_url = self.file_system_client.url().unwrap();
         // the path will contain a leading '/' as we extract if from the path component of the url
         ListPathsBuilder::new(self.file_system_client.clone())
-            .directory(&self.dir_path)
+            .directory(self.dir_path.to_owned())
             .recursive(true)
     }
 
